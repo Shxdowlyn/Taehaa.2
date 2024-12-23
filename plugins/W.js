@@ -23,7 +23,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     serverMessageId: '', 
     newsletterName: channelRD.name }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
     "title": `  ͟͞ Ｗ Ｅ Ｌ Ｃ Ｏ Ｍ Ｅ ͟͞  `, 
-    "body": `${userName}`, 
+    "body": `@user`, 
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
     "thumbnail":gataMenu , 
