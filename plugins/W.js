@@ -5,7 +5,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return true;
 
   let vn = ['./media/Bienvenido.mp3','./media/Bebito.mp3'].getRandom()
-  let vn2 = ['./media/basura.mp3','./media/vete a la verga.mp3'].getRandom()
+  let vn2 = ['./media/basura.mp3','./media/verga.mp3'].getRandom()
   let chat = global.db.data.chats[m.chat];
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
