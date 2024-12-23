@@ -39,7 +39,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     serverMessageId: '', 
     newsletterName: channelRD.name }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
     "title": `adios`, 
-    "body": `𝙰𝚍𝚒𝚘𝚜 𝙱𝚒𝚗𝚊𝚛𝚒𝚘`, 
+    "body": [`𝙰𝚍𝚒𝚘𝚜 𝙱𝚒𝚗𝚊𝚛𝚒𝚘`, `Nadie te Queria`].getRandom()
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
     "thumbnail": gataImg, 
