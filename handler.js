@@ -1475,7 +1475,7 @@ mentionedJid:[user],
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
 "thumbnail": apii.data, 
-"title": [wm, '' + gt + ' ', 'https://whatsapp.com/channel/0029Vatsbep84OmF6dDXpm1s'].getRandom(),
+"title": [wm, '' + gt + ' ', ''].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
 sourceUrl: 'https://whatsapp.com/channel/0029Vatsbep84OmF6dDXpm1s' }}}, { quoted: fkontak2 })
