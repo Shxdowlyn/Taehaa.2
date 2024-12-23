@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return true;
 
-  let vn = './media/Bienvenido.mp3','./media/Bebito.mp3';
+  let vn = ['./media/Bienvenido.mp3','./media/Bebito.mp3'].getRandom()
   let vn2 = './media/basura.mp3';
   let chat = global.db.data.chats[m.chat];
   const getMentionedJid = () => {
