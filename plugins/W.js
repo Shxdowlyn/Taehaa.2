@@ -26,7 +26,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "body": `@user`, 
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
-    "thumbnail":gataMenu , 
+    "thumbnail":gataImg, 
     "sourceUrl": accountsgb, 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
