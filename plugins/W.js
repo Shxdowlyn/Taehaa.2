@@ -22,7 +22,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     newsletterJid: channelRD.id,
     serverMessageId: '', 
     newsletterName: channelRD.name }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
-    "title": `  ͟͞ Ｗ Ｅ Ｌ Ｃ Ｏ Ｍ Ｅ ͟͞  `, 
+    "title": `hola`, 
     "body": `@user`, 
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
@@ -38,7 +38,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     newsletterJid: channelRD.id,
     serverMessageId: '', 
     newsletterName: channelRD.name }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
-    "title": `  ͟͞ Ａ Ｄ Ｉ Ｏ Ｓ ͟͞  `, 
+    "title": `adios`, 
     "body": `${userName}, se despide.`, 
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
