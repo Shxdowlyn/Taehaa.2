@@ -1475,10 +1475,10 @@ mentionedJid:[user],
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
 "thumbnail": apii.data, 
-"title": [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(),
+"title": [wm, '' + gt + ' ', 'https://whatsapp.com/channel/0029Vatsbep84OmF6dDXpm1s'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
-sourceUrl: 'https://github.com/GataNina-Li/GataBot-MD' }}}, { quoted: fkontak2 })
+sourceUrl: 'https://whatsapp.com/channel/0029Vatsbep84OmF6dDXpm1s' }}}, { quoted: fkontak2 })
 apii.data = ''
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
