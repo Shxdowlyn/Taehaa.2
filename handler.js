@@ -1466,11 +1466,23 @@ if (responseb[0].status === "404") return
 }}
 	
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
-conn.sendMessage(id, { image: apii.data, caption: text, mentions: [user]}, { quoted: fkontak2 })  
+this.sendMessage(id, { text: text, 
+contextInfo:{
+forwardingScore: 9999999,
+isForwarded: true, 
+mentionedJid:[user],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"thumbnail": apii.data, 
+"title": [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(),
+"containsAutoReply": true,
+"mediaType": 1, 
+sourceUrl: 'https://github.com/GataNina-Li/GataBot-MD' }}}, { quoted: fkontak2 })
+apii.data = ''
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
-// copiar hasta aqui para configurar despedida y bienvenida.
-		    
+	
 break
 case 'promote':
 case 'daradmin':
@@ -1555,7 +1567,7 @@ restrict: lenguajeGB['smsRestrict'](),
 //if (msg) return m.reply(msg)
 	
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻' + gt + ' 😻', '🌟'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '' + gt + ' ', ''].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
