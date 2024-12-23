@@ -27,7 +27,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
     "thumbnail":gataImg, 
-    "sourceUrl": welgata, 
+    "sourceUrl": canales, 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }
@@ -43,7 +43,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
     "thumbnail": gataImg, 
-    "sourceUrl": welgata, 
+    "sourceUrl": canales, 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
   }
