@@ -23,7 +23,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     serverMessageId: '', 
     newsletterName: channelRD.name }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
  "title": `𝙱𝚒𝚎𝚗𝚟𝚎𝚗𝚒𝚍𝚘`, 
-    "body": [`𝙴𝚛𝚎𝚜 𝚢 𝚜𝚎𝚛𝚊́𝚜 𝚎𝚕 𝚖𝚎𝚓𝚘𝚛♥️`, `𝚂𝚒𝚎́𝚗𝚝𝚎𝚝𝚎 𝚌𝚘́𝚖𝚘𝚍𝚘♥️`].getRandom(),
+    "body": [`𝙴𝚛𝚎𝚜 𝚎𝚕 𝚖𝚎𝚓𝚘𝚛♥️`, `𝚂𝚒𝚎́𝚗𝚝𝚎𝚝𝚎 𝚌𝚘́𝚖𝚘𝚍𝚘♥️`].getRandom(),
  "previewType": "PHOTO", 
     "thumbnailUrl": null,
     "thumbnail":gataImg, 
