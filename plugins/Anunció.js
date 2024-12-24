@@ -1,29 +1,21 @@
-const handler = async (m, {conn}) => {
-  try {
-    const pp = imagen7;
-    const img = await(await fetch('https://chat.whatsapp.com/GzqYw7fK9CADEWEtfL6804')).buffer();
-    const _uptime = process.uptime() * 1000;
-    const uptime = clockString(_uptime);
-    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
-    const str = `╭─ 𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇`.trim();
-    if (m.isGroup) {
-      conn.sendMessage(m.chat, {text: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: {forwardingScore: 9999999, isForwarded: true, mentionedJid: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.titulowm, "containsAutoReply": true, "mediaType": 1, "thumbnail": pp, "mediaUrl": `https://www.atom.bio/theshadowbrokers-team`, "sourceUrl": `https://chat.whatsapp.com/GzqYw7fK9CADEWEtfL6804`}}}, {quoted: m});
-    } else {
-      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
-      conn.sendMessage(m.chat, {text: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: {forwardingScore: 9999999, isForwarded: true, mentionedJid: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.titulowm, "containsAutoReply": true, "mediaType": 1, "thumbnail": pp, "mediaUrl": `https://www.atom.bio/theshadowbrokers-team`, "sourceUrl": `https://chat.whatsapp.com/GzqYw7fK9CADEWEtfL6804`}}}, {quoted: fkontak2});
+export async function before(m, { conn, isAdmin, isBotAdmin }) {
+    if (!m.isGroup) return;
+    let chat = global.db.data.chats[m.chat]
+    let delet = m.key.participant
+    let bang = m.key.id
+    let bot = global.db.data.settings[this.user.jid] || {}
+    if (m.fromMe) return true;
+
+    if (m.id.startsWith('3EB0') && m.id.length === 22) {
+        let chat = global.db.data.chats[m.chat];
+
+        if (chat.antiBot) {
+         await conn.reply(m.chat, "Soy Elite Bot Global, no te necesitamos en este grupo . bye bye bot de segunda . 💩", null);
+
+            if (isBotAdmin) {
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+            }
+        }
     }
-  } catch {
-  }
-};
-handler.help = ['estado'];
-handler.tags = ['main'];
-handler.rowner = true;
-handler.command = /^(anuncio)$/i;
-export default handler;
-function clockString(ms) {
-  const d = isNaN(ms) ? '--' : Math.floor(ms / 86400000);
-  const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24;
-  const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
-  const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
-  return [`\n│ *=> ⚡ ` + d, ' Día(s)* ', `\n│ *=> 💫 ` + h, ' Hora(s)* ', `\n│ *=> 💠 ` + m, ' Minuto(s)* ', `\n│ *=> ♦ ` + s, ' Segundo(s)* '].map((v) => v.toString().padStart(2, 0)).join('');
 }
