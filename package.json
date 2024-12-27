@@ -61,6 +61,7 @@
 "file-type": "^17.1.1",
 "fluent-ffmpeg": "^2.1.2",
 "formdata-node": "^4.3.2",
+    "node-fetch": "^3.2.0",
 "fs": "^0.0.1-security",
 "google-libphonenumber": "3.2.38",
 "hispamemes": "^1.0.7",
