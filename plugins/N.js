@@ -48,13 +48,13 @@ const dataRET = await dataRE.json()
 await conn.sendMessage(m.chat, { audio: { url: dataRET.mp3[1].url }, mimetype: 'audio/mpeg' }, { quoted: m})
 } catch {
 try {
-let humanLol = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${ytres[0].url}`)
-let humanRET = await humanLol.json()
+let api = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${ytres[0].url}`)
+let json = await api.json()
 await conn.sendMessage(m.chat, { audio: { url: humanRET.result.audio.link}, mimetype: 'audio/mpeg' }, { quoted: m})
 } catch {     
 try {
-let lolhuman = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${ytres[0].url}`)    
-let lolh = await lolhuman.json()
+let api = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${ytres[0].url}`)
+let json = await api.json()
 let n = lolh.result.title || 'error'
 await conn.sendMessage(m.chat, { audio: { url: lolh.result.link}, mimetype: 'audio/mpeg' }, { quoted: m})
 } catch {   
