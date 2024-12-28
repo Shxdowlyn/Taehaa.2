@@ -21,7 +21,7 @@ await conn.sendMessage(m.chat, {
 text: `*⌈📀 SPOTIFY PREMIUM 📀⌋*
 01:27 ━━━━━⬤──── 05:48
 *⇄ㅤ   ◁   ㅤ  ❚❚ㅤ     ▷ㅤ   ↻*
-𝙀𝙡𝙞𝙩𝙚 𝘽𝙤𝙩 𝙂𝙡𝙤𝙗𝙖𝙡`, 
+𝙀𝙡𝙞𝙩𝙚 𝘽𝙤𝙩 𝙂j𝙡𝙤𝙗𝙖𝙡`, 
 contextInfo: {
 externalAdReply: {
 title: yt_play[0].title,
@@ -43,7 +43,7 @@ const size = await yt.audio[q].fileSizeH
 await conn.sendMessage(m.chat, { audio: { url: dl_url }, mimetype: 'audio/mpeg' }, { quoted: m})
 } catch {
 try {
-const dataRE = await fetch(`https://api.akuari.my.id/downloader/youtube?link=${yt_play[0].url}`)
+const dataRE = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${ytres[0].url}`)
 const dataRET = await dataRE.json()
 await conn.sendMessage(m.chat, { audio: { url: dataRET.mp3[1].url }, mimetype: 'audio/mpeg' }, { quoted: m})
 } catch {
