@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import yts from 'yt-search';
 import axios from "axios";
 
-const formatAudio = ['128kbps'];
+const formatAudio = ['mp3'];
 const formatVideo = ['480'];
 
 const ddownr = {
@@ -76,7 +76,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!search.all || search.all.length === 0) {
       return m.reply('No se encontraron resultados para tu búsqueda.');
     }
-
+await m.react('🕓')
     const videoInfo = search.all[0];
     const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
     const vistas = formatViews(views);
@@ -99,7 +99,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         },
       },
     };
-
+await m.react('✅')
     await conn.reply(m.chat, infoMessage,m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
