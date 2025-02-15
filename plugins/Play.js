@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import yts from 'yt-search';
 import axios from "axios";
 
-const formatAudio = ['128'];
+const formatAudio = ['128kbps'];
 const formatVideo = ['480'];
 
 const ddownr = {
