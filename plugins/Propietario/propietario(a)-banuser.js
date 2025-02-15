@@ -43,4 +43,5 @@ console.log(e)
 }}
 handler.command = /^bloquear$/i
 handler.admin = true
+handler.owner = true
 export default handler
