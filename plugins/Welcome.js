@@ -1,4 +1,4 @@
-let WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
+/*let WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
 import fetch from 'node-fetch';
 
 export async function before(m, { conn, participants, groupMetadata }) {
@@ -47,4 +47,4 @@ export async function before(m, { conn, participants, groupMetadata }) {
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
   }
-}
+}*/
