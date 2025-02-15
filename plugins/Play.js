@@ -2,8 +2,8 @@ import fetch from "node-fetch";
 import yts from 'yt-search';
 import axios from "axios";
 
-const formatAudio = ['mp3'];
-const formatVideo = ['360', '480', '720', '1080', '1440', '4k'];
+const formatAudio = ['128'];
+const formatVideo = ['480'];
 
 const ddownr = {
   download: async (url, format) => {
@@ -80,7 +80,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const videoInfo = search.all[0];
     const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
     const vistas = formatViews(views);
-   const infoMessage = `01:27 ━━━━━⬤──── *${timestamp}*
+   const infoMessage = `*01:27* ━━━━━⬤──── *${timestamp}*
 *⇄ㅤ  ◁   ㅤ  ❚❚ㅤ     ▷ㅤ  ↻*
 𝙀𝙡𝙞𝙩𝙚 𝘽𝙤𝙩 𝙂𝙡𝙤𝙗𝙖𝙡`;
     const thumb = (await conn.getFile(thumbnail))?.data;
