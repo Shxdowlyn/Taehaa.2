@@ -50,8 +50,10 @@ await conn.sendMessage(m.chat, { text: `[ ✅ REGISTRO COMPLETADO ]
 
 ◉ *Nombre:* ${name}
 ◉ *Edad:* ${age} años
-◉ *Hora:* ${time} 🇦🇷
-◉ *Fecha:* ${date} ${userNationality ? `\n◉ *País:* ${userNationality}` : ''}
+◉ *Hora:* ${time} ✅
+◉ *Fecha:* ${date} ${userNationality ? `
+\n◉ 
+*País:* ${userNationality}` : ''}
 ◉ *Número:* wa.me/${who.split`@`[0]}
 ◉ *Número de serie:*
 ⤷ ${sn}
