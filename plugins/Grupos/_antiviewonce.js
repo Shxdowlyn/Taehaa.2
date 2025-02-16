@@ -1,4 +1,4 @@
-/*let { downloadContentFromMessage } = (await import(global.baileys))
+let { downloadContentFromMessage } = (await import('@whiskeysockets/baileys'))
 
 let handler = m => m
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
@@ -17,31 +17,16 @@ let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])}
 const fileSize = formatFileSize(msg[type].fileLength)
-const description = mid.antiviewonce(type, fileSize, m, msg)
+const description = `
+✅️ *ANTI VER UNA VEZ* ✅️\n\n💭 *No ocultes* ${type === 'imageMessage' ? '`Imagen` 📷' : type === 'videoMessage' ? '`Vídeo` 🎥' : type === 'audioMessage' ? '`Mensaje de voz` 🎤' : 'este mensaje'}\n- ✨️ *Usuario:* *@${m.sender.split('@')[0]}*
+${msg[type].caption ? `- *Texto:* ${msg[type].caption}` : ''}`.trim()
 if (/image|video/.test(type)) return await conn.sendFile(m.chat, buffer, type == 'imageMessage' ? 'error.jpg' : 'error.mp4', description, m, false, { mentions: [m.sender] })
 if (/audio/.test(type)) { 
 await conn.reply(m.chat, description, m, { mentions: [m.sender] }) 
 await conn.sendMessage(m.chat, { audio: buffer, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true }, { quoted: m })
-}}}
-export default handler*/
-
-import { downloadContentFromMessage } from "@whiskeysockets/baileys"
-
-export async function before(m, { isAdmin, isBotAdmin }) {
-let chat = db.data.chats[m.chat]
-if (!chat.antiver || chat.isBanned) return
-if (m.mtype == 'viewOnceMessageV2' || m.mtype.hasOwnProperty("viewOnce")) {
-let msg = m.message.viewOnceMessageV2.message
-let type = Object.keys(msg)[0]
-let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
-let buffer = Buffer.from([])
-for await (const chunk of media) {
-buffer = Buffer.concat([buffer, chunk])}
-if (/video/.test(type)) {
-return this.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}` + lenguajeGB.smsAntiView1(), m)
-} else if (/image/.test(type)) {
-return this.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}` + lenguajeGB.smsAntiView2(), m)
-}}}
+}
+}}
+export default handler
 
 function formatFileSize(bytes) {
 const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'TY', 'EY']
