@@ -41,12 +41,6 @@ await conn.reply(m.chat, lenguajeGB.smsPropban5(), null, { mentions: [user] })
 await conn.reply(m.chat, lenguajeGB.smsPropban7(usedPrefix, command, number), null, m)
 console.log(e) 
 }}
-
-
-handler.customPrefix = /bloquear/i 
-handler.command = new RegExp
-handler.exp = 0
-handler.owner = true
+handler.command = /^bloquear$/i
+handler.rowner = true
 export default handler
-
-
