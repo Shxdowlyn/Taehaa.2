@@ -43,7 +43,6 @@ console.log(e)
 }}
 
 
-handler.customPrefix = /bloquear/i;
-handler.command = new RegExp();
-
-export default handler;
+handler.customPrefix = /bloquear|banuser/
+handler.command = /^(bloquear|banuser?$)/
+export default handler
