@@ -41,7 +41,7 @@ await conn.reply(m.chat, lenguajeGB.smsPropban5(), null, { mentions: [user] })
 await conn.reply(m.chat, lenguajeGB.smsPropban7(usedPrefix, command, number), null, m)
 console.log(e) 
 }}
-handler.command = /^bloquear$/i
+handler.customPrefix = /estado|estatus/i 
 handler.admin = true
 handler.owner = true
 export default handler
