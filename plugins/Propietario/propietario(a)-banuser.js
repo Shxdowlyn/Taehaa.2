@@ -43,10 +43,6 @@ console.log(e)
 }}
 
 
-handler.help = ['banuser']
-handler.tags = ['owner']
-handler.customPrefix = ['banuser']
-handler.command = new RegExp
+handler.command = /^banuser|bloquear$/i
 handler.rowner = true
-
 export default handler
