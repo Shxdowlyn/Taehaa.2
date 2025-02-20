@@ -1,4 +1,4 @@
-let WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
+/*let WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
 import fetch from 'node-fetch';
 
 export async function before(m, { conn, participants, groupMetadata }) {
@@ -22,13 +22,13 @@ export async function before(m, { conn, participants, groupMetadata }) {
     newsletterJid: channelRD.id,
     serverMessageId: '', 
     newsletterName: channelRD.name }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
-// "title": `𝙱𝚒𝚎𝚗𝚟𝚎𝚗𝚒𝚍𝚘`, 
-   // "body": [`𝙴𝚛𝚎𝚜 𝚎𝚕 𝚖𝚎𝚓𝚘𝚛♥️`, `𝚂𝚒𝚎́𝚗𝚝𝚎𝚝𝚎 𝚌𝚘́𝚖𝚘𝚍𝚘♥️`].getRandom(),
-// "previewType": "PHOTO", 
-  //  "thumbnailUrl": null,
-  //  "thumbnail":gataImg, 
-   // "sourceUrl": redesMenu, 
-    //"showAdAttribution": true}}, 
+"title": `𝙱𝚒𝚎𝚗𝚟𝚎𝚗𝚒𝚍𝚘`, 
+    "body": [`𝙴𝚛𝚎𝚜 𝚎𝚕 𝚖𝚎𝚓𝚘𝚛♥️`, `𝚂𝚒𝚎́𝚗𝚝𝚎𝚝𝚎 𝚌𝚘́𝚖𝚘𝚍𝚘♥️`].getRandom(),
+ "previewType": "PHOTO", 
+   "thumbnailUrl": null,
+    "thumbnail":gataImg, 
+   "sourceUrl": redesMenu, 
+    "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }
 
@@ -48,3 +48,4 @@ export async function before(m, { conn, participants, groupMetadata }) {
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
   }
 }
+*/
