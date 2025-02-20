@@ -43,6 +43,10 @@ console.log(e)
 }}
 
 
-handler.customPrefix = /ª|a|A/
-handler.command = /^(a|ª|A?$)/
+handler.help = ['banuser']
+handler.tags = ['owner']
+handler.customPrefix = ['banuser']
+handler.command = new RegExp
+handler.rowner = true
+
 export default handler
