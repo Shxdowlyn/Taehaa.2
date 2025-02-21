@@ -11,7 +11,7 @@ let menu = `
 
 const vi = ['https://qu.ax/OMFqX.mp4',
            'https://qu.ax/Fsdxr.mp4']
-
+await m.react('⚡')
 try {
 await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
 } catch (error) {
