@@ -7,7 +7,7 @@ const handler = async (m) => {
   const media = await q.download();
   const isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime);
   const link = await (isTele ? uploadImage : uploadFile)(media);
-  m.reply(`\`\`\`[ ⭐ ] Aquí tienes la URL de tu archivo:\n✅ ${link}`);
+  m.reply(`\`\`\`[ ⭐ ] Aquí tienes la URL de tu archivo:\`\`\`\n✅ ${link}`);
 };
 handler.help = ['tourl <reply image>'];
 handler.tags = ['sticker'];
