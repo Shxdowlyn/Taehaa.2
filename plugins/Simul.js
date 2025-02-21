@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     
     let mentions = text.trim();
     let who = mentions ? conn.parseMention(mentions) : [];
-    if (!text) return conn.reply(m.chat, `${emoji} Menciona al usuario con @ para simular la bienvenida.`, m);
+    if (!text) return conn.reply(m.chat, `Menciona al usuario con @ para simular la bienvenida.`, m);
 
     let taguser = `@${who[0].split('@')[0]}`;
     let groupMetadata = await conn.groupMetadata(m.chat);
