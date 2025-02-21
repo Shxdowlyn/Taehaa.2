@@ -1,5 +1,6 @@
 let handler = async (m, { conn, usedPrefix, command}) => {
-let pp = ['https://qu.ax/cZlmq.mp4','https://qu.ax/GrMfw.mp4','https://qu.ax/CUjjB.mp4','https://qu.ax/VXhPe.mp4']
+let pp = ['https://qu.ax/OMFqX.mp4',
+          'https://qu.ax/Fsdxr.mp4']
 
 let who
 if (m.isGroup) who = m.mentionedJid[0]
