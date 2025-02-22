@@ -6,7 +6,8 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
     }
 
     try {
-        await conn.reply(m.chat, `Espere un momento, estoy descargando su video...`, m);
+        await conn.reply(m.chat, `✦ ¡Espera por favor!
+Estoy descargando el vídeo sin marca de agua.`, m);
 
         const tiktokData = await tiktokdl(args[0]);
 
@@ -17,7 +18,9 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
         const videoURL = tiktokData.data.play;
 
         if (videoURL) {
-            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `Aquí tienes ฅ^•ﻌ•^ฅ`, m);
+            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `☑️ Video descargado con éxito.
+
+© Powered By Elite Bot`, m);
         } else {
             return conn.reply(m.chat, "No se pudo descargar.", m);
         }
