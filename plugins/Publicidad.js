@@ -1,7 +1,7 @@
-import {sticker} from '../lib/sticker.js';
-import uploadFile from '../lib/uploadFile.js';
-import uploadImage from '../lib/uploadImage.js';
-import {webp2png} from '../lib/webp2mp4.js';
+import {sticker} from '../../lib/sticker.js';
+import uploadFile from '../../lib/uploadFile.js';
+import uploadImage from '../../lib/uploadImage.js';
+import {webp2png} from '../../lib/webp2mp4.js';
 
 const handler = async (m, {conn, args, usedPrefix, command}) => {
   if (usedPrefix == 'a' || usedPrefix == 'A') return;
@@ -41,7 +41,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 };
 handler.help = ['sfull'];
 handler.tags = ['sticker'];
-handler.command = /^s(publicidad)$/i;
+handler.command = /^(publicida)?(publicidad)?(publi)?$/i;
 
 export default handler;
 
