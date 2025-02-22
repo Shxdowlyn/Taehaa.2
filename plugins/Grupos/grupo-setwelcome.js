@@ -24,7 +24,7 @@ Para mencionar el nombre de este grupo.
 
 💫 Ejemplo Despedida:
 
-.setbye Adiós Popo 🤡 @user.']()}`
+.setbye Adiós Popo 🤡 @user.`
 }
 handler.command = ['setwelcome', 'bienvenida'] 
 handler.botAdmin = true
