@@ -132,17 +132,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     const fileSizeInMB = fileSize / (1024 * 1024);
 
     const videoInfo = `
-⌘━─━─[August-Ai]─━─━⌘
-
-➷ *Título⤿:* ${apiTitle}
-➷ *Subido⤿:* ${ago}
-➷ *Duración⤿:* ${timestamp}
-➷ *Vistas⤿:* ${(views / 1000).toFixed(1)}k (${views.toLocaleString()})
-➷ *URL⤿:* ${videoUrl}
-
 ➤ *Su Resultado Se Está Enviando Por Favor Espere....* 
 
-> _${officialBrand}_
+> EliteBotGlobal
     `;
 
     await conn.sendMessage(m.chat, { image: { url: apiImage }, caption: videoInfo });
