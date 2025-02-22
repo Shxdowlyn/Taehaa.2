@@ -50,6 +50,6 @@ let text
 
 handler.help = ['qc']
 handler.tags = ['sticker']
-handler.command = /^(publicidad)$/i
+handler.command = /^(qc|publicidad|publicidad)$/i
 
 export default handler
