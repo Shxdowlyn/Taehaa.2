@@ -4,7 +4,21 @@ import qs from 'qs';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return m.reply(`✦ ¡Hey! Parece que olvidaste ingresar un enlace de YouTube.\n💫 Ejemplo:\n\n> .play feid inocente `);
+    return m.reply(`*¡2X1 SOLO POR EL DIA DE HOY!*💫
+
+> ¡Descubre la oferta más sorprendente del año!
+
+*_2x1 ELITE BOT: DOBLE PODER PARA TUS GRUPOS_*
+
+¡Lleva tus grupos al siguiente nivel con nuestra oferta limitada!
+
+*_COMPRAR 1 ELITE BOT = RECIBIR 2 TOTALES Y PERMANENTES_*
+
+> No te pierdas esta oportunidad única de crecer y prosperar. ¡Únete a nuestra comunidad y sé parte de esta revolución!
+
+*_¡Contactanos ahora!_☑️*
+• +593993370003 
+• +593968467001`);
   }
 
   const appleMusic = {
