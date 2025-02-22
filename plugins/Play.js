@@ -4,11 +4,7 @@ import qs from 'qs';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return m.reply(`✦ ¡Hey! Parece que olvidaste ingresar un enlace de YouTube.
-
-```˗ˏˋ Ejemplo de uso ˎˊ˗```
-
-> .play feid inocente `);
+    return m.reply(`✦ ¡Hey! Parece que olvidaste ingresar un enlace de YouTube.\n```˗ˏˋ Ejemplo de uso ˎˊ˗```\n\n> .play feid inocente `);
   }
 
   const appleMusic = {
