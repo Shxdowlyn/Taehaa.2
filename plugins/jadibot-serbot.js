@@ -6,8 +6,8 @@ try {
 let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { 
 "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-const menu = `
-*@${m.sender.split("@")[0]}* 𝘦𝘴𝘵𝘢 𝘣𝘢𝘯̃𝘢𝘯𝘥𝘰𝘴𝘦 𝘤𝘰𝘯 *${text}* 🛀🏻🚿\n©𝘌𝘭𝘪𝘵𝘦𝘉𝘰𝘵𝘎𝘭𝘰𝘣𝘢𝘭 -`,`hola`.trim()
+let menu = `
+*@${m.sender.split("@")[0]}* 𝘦𝘴𝘵𝘢 𝘣𝘢𝘯̃𝘢𝘯𝘥𝘰𝘴𝘦 𝘤𝘰𝘯 *${text}* 🛀🏻🚿\n©𝘌𝘭𝘪𝘵𝘦𝘉𝘰𝘵𝘎𝘭𝘰𝘣𝘢𝘭 -`,`hola`.getRandom()
 
 const vi = ['https://qu.ax/OMFqX.mp4',
            'https://qu.ax/Fsdxr.mp4']
