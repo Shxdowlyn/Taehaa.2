@@ -24,7 +24,7 @@ try {
 const { author: { nickname }, video, description } = await tiktokdl(args[0])
 const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd
 conn.sendFile(m.chat, url, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? `\n⛱️ ${mid.smsYT14}\n*${description}*` : ''}\n${wm}`.trim(), m)
-handler.limit = 2
+//handler.limit = 2
 } catch (e4) {
 try{
 const response=await fetch(`https://deliriussapi-oficial.vercel.app/download/tiktok?url=${args[0]}`)
