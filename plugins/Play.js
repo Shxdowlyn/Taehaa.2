@@ -4,7 +4,11 @@ import qs from 'qs';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return m.reply(`Ejemplo de uso: *${usedPrefix + command} Joji - Ew*`);
+    return m.reply(`✦ ¡Hey! Parece que olvidaste ingresar un enlace de YouTube.
+
+```˗ˏˋ Ejemplo de uso ˎˊ˗```
+
+> .play feid inocente `);
   }
 
   const appleMusic = {
