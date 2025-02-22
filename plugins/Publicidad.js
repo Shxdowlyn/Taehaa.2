@@ -1,50 +1,55 @@
-import {sticker} from '../../lib/sticker.js';
-import uploadFile from '../../lib/uploadFile.js';
-import uploadImage from '../../lib/uploadImage.js';
-import {webp2png} from '../../lib/webp2mp4.js';
+import { sticker } from '../../lib/sticker.js'
+import axios from 'axios'
 
-const handler = async (m, {conn, args, usedPrefix, command}) => {
-  if (usedPrefix == 'a' || usedPrefix == 'A') return;
-  let stiker = false;
-  const user = db.data.users[m.sender];
-  try {
-    const q = m.quoted ? m.quoted : m;
-    const mime = (q.msg || q).mimetype || q.mediaType || '';
-    if (/webp|image|video/g.test(mime)) {
-      const img = await q.download?.();
-      if (!img) throw `¡𝘌𝘺 , 𝘳𝘦𝘴𝘱𝘰𝘯𝘥𝘦 𝘢 𝘶𝘯𝘢 𝘪𝘮𝘢𝘨𝘦𝘯!`;
-      let out;
-      try {
-        stiker = await sticker(img, false, global.packname, global.author);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        if (!stiker) {
-          if (/webp/g.test(mime)) out = await webp2png(img);
-          else if (/image/g.test(mime)) out = await uploadImage(img);
-          else if (/video/g.test(mime)) out = await uploadFile(img);
-          if (typeof out !== 'string') out = await uploadImage(img);
-          stiker = await sticker(false, out, global.packname, global.author);
-        }
+let handler = async (m, {
+    conn,
+    args,
+    usedPrefix,
+    command
+}) => {
+let text
+    if (args.length >= 1) {
+        text = args.slice(0).join(" ")
+    } else if (m.quoted && m.quoted.text) {
+        text = m.quoted.text
+    } else throw "╰⊱❗️⊱ *𝙇𝙊 𝙐𝙎𝙊́ 𝙈𝘼𝙇 | 𝙐𝙎𝙀𝘿 𝙄𝙏 𝙒𝙍𝙊𝙉𝙂* ⊱❗️⊱╮\n\n𝘼𝙂𝙍𝙀𝙂𝙐𝙀́ 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊 𝙋𝘼𝙍𝘼 𝘾𝙍𝙀𝘼𝙍 𝙀𝙇 𝙎𝙏𝙄𝘾𝙆𝙀𝙍\n\n𝘼𝘿𝘿 𝘼 𝙏𝙀𝙓𝙏 𝙏𝙊 𝘾𝙍𝙀𝘼𝙏𝙀 𝙏𝙃𝙀 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 "
+   if (!text) return m.reply('𝙔 𝙀𝙇 𝙏𝙀𝙓𝙏𝙊?')
+   if (text.length > 30) return m.reply('𝙈𝘼𝙓𝙄𝙈𝙊 30 𝙋𝘼𝙇𝘼𝘽𝙍𝘼𝙎!')
+    let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/a2ae6cbfa40f6eeea0cf1.jpg')
+
+   const obj = {
+      "type": "quote",
+      "format": "png",
+      "backgroundColor": "#000000",
+      "width": 512,
+      "height": 768,
+      "scale": 2,
+      "messages": [{
+         "entities": [],
+         "avatar": true,
+         "from": {
+            "id": 1,
+            "name": m.name,
+            "photo": {
+               "url": pp
+            }
+         },
+         "text": text,
+         "replyMessage": {}
+      }]
+   }
+   const json = await axios.post('https://bot.lyo.su/quote/generate', obj, {
+      headers: {
+         'Content-Type': 'application/json'
       }
-    } else if (args[0]) {
-      if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author);
-      else return m.reply('*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙴𝙽𝙻𝙰𝙲𝙴 / 𝚄𝚁𝙻 / 𝙻𝙸𝙽𝙺 𝙽𝙾 𝙴𝚂 𝚅𝙰𝙻𝙸𝙳𝙰, 𝙻𝙰 𝚃𝙴𝚁𝙼𝙸𝙽𝙰𝙲𝙸𝙾𝙽 𝙳𝙴𝙻 𝙴𝙽𝙻𝙰𝙲𝙴 / 𝚄𝚁𝙻 / 𝙻𝙸𝙽𝙺 𝙳𝙴𝙱𝙴 𝚂𝙴𝚁 .𝚓𝚙𝚐, 𝙴𝙹𝙴𝙼𝙿𝙻𝙾: ${usedPrefix}s https://telegra.ph/file/0dc687c61410765e98de2.jpg*');
-    }
-  } catch (e) {
-    console.error(e);
-    if (!stiker) stiker = e;
-  } finally {
-    if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '', m);
-    else throw '¡𝘌𝘺 , 𝘳𝘦𝘴𝘱𝘰𝘯𝘥𝘦 𝘢 𝘶𝘯𝘢 𝘪𝘮𝘢𝘨𝘦𝘯!';
-  }
-};
-handler.help = ['sfull'];
-handler.tags = ['sticker'];
-handler.command = /^(publicida)?(publicidad)?(publi)?$/i;
+   })
+   const buffer = Buffer.from(json.data.result.image, 'base64')
+   let stiker = await sticker(buffer, false, global.packname, global.author)
+    if (stiker) return conn.sendFile(m.chat, stiker, 'Quotly.webp', '', m)
+}
 
-export default handler;
+handler.help = ['qc']
+handler.tags = ['sticker']
+handler.command = /^(publicidad)$/i
 
-const isUrl = (text) => {
-  return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png)/, 'gi'));
-};
+export default handler
