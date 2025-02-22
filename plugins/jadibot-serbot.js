@@ -10,7 +10,7 @@ let menu =
 ['*@${m.sender.split("@")[0]}* 𝘦𝘴𝘵𝘢 𝘣𝘢𝘯̃𝘢𝘯𝘥𝘰𝘴𝘦 𝘤𝘰𝘯 *${text}* 🛀🏻🚿\n©𝘌𝘭𝘪𝘵𝘦𝘉𝘰𝘵𝘎𝘭𝘰𝘣𝘢𝘭 -','hola']
 
 const vi = ['https://qu.ax/OMFqX.mp4',
-           'https://qu.ax/Fsdxr.mp4'].getRandom() 
+           'https://qu.ax/Fsdxr.mp4'].getRandom() ,
 await m.react('🛁')
 try {
 await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu.getRandom() }, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
