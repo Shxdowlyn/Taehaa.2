@@ -1,90 +1,34 @@
-import fetch from 'node-fetch';
 
-let handler = async (m, { conn }) => {
-    // Definimos las variables de los grupos y las imágenes
-    let soporteGB = "";
-    let grupo1 = "https://chat.whatsapp.com/EGuK8Gaetbg83bhEh2LAej";
-    let grupo2 = "https://chat.whatsapp.com/EGuK8Gaetbg83bhEh2LAej";
-    let grupo3 = "https://chat.whatsapp.com/EGuK8Gaetbg83bhEh2LAej";
-    let grupo4 = "https://chat.whatsapp.com/EGuK8Gaetbg83bhEh2LAej";
-    let grupo5 = "https://chat.whatsapp.com/EGuK8Gaetbg83bhEh2LAej";
-
-    let grupos = [soporteGB, grupo1, grupo2, grupo3, grupo4, grupo5];
-
-    let img5 = "https://qu.ax/LJEVX.jpg";
-    let img6 = "https://qu.ax/LJEVX.jpg";
-    let img7 = "https://qu.ax/LJEVX.jpg";
-    let img8 = "https://qu.ax/LJEVX.jpg";
-    let img9 = "https://qu.ax/LJEVX.jpg";
-
-    let gata = [img5, img6, img7, img8, img9];
-
-    let wm = "Super Bot";
-    let yt = "https://youtube.com/@SuperBot";
-    let vs = "1.0.0";
-    let rg = "🚫";
-    let Bot = "🤖 Super Bot";
-    global.img = "https://qu.ax/LJEVX.jpg"; // Imagen por defecto
-
-    let fkontak = {
-        "key": {
-            "participant": "0@s.whatsapp.net",
-            "remoteJid": "status@broadcast",
-            "fromMe": false,
-            "id": "Halo"
-        },
-        "message": {
-            "contactMessage": {
-                "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-            }
-        },
-        "participant": "0@s.whatsapp.net"
-    };
-
-    let enlace = {
-        contextInfo: {
-            externalAdReply: {
-                title: `${wm} 🔥`,
-                body: 'Support Group',
-                sourceUrl: grupos[Math.floor(Math.random() * grupos.length)],
-                thumbnail: await (await fetch(gata[Math.floor(Math.random() * gata.length)])).buffer()
-            }
-        }
-    };
-
-    let enlace2 = {
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                mediaUrl: yt,
-                mediaType: 'VIDEO',
-                description: '',
-                title: wm,
-                body: '🔥 Super Bot Barboza',
-                thumbnailUrl: await (await fetch(global.img)).buffer(),
-                sourceUrl: yt
-            }
-        }
-    };
-
-    let dos = [enlace, enlace2];
-
-    await conn.fetchBlocklist().then(async data => {
-        let txt = `📛 𝗟𝗜𝗦𝗧𝗔 𝗗𝗘 𝗕𝗟𝗢𝗤𝗨𝗘𝗔𝗗𝗢𝗦 : 𝗕𝗟𝗢𝗖𝗞𝗘𝗗\n\n*Total :* ${data.length}\n\n╭━━━[ *${vs} 𓃠* ]━━━⬣\n`;
-
-        for (let i of data) {
-            txt += `┃🚫 @${i.split("@")[0]}\n`;
-        }
-
-        txt += "╰━━━━━━━⬣\n\n*Por favor no llame para evitar ser bloqueado, gracias.*\n\n*Please do not call to avoid being blocked, thank you.*";
-
-        return conn.reply(m.chat, txt, fkontak, m, { mentions: await conn.parseMention(txt) });
-    }).catch(err => {
-        console.log(err);
-        return conn.reply(m.chat, `${rg}𝙉𝘼𝘿𝙄𝙀 𝙃𝘼 𝙎𝙄𝘿𝙊 𝘽𝙇𝙊𝙌𝙐𝙀𝘼𝘿𝙊\n\n𝙉𝙊 𝙊𝙉𝙀 𝙃𝘼𝙎`, Bot, m);
-    });
+const handler = async (m, {conn, args, groupMetadata, participants, usedPrefix, command, isBotAdmin, isSuperAdmin}) => {
+  if (!args[0]) return m.reply(`* 🎩 Ingrese EL Mensaje + El Prefijo\n> Ejemplo: ${usedPrefix + command} 52*`);
+  if (isNaN(args[0])) return m.reply(`*🍭 Ingrese Algun Prefijo De Un Pais: ${usedPrefix + command} 52*`);
+  const lol = args[0].replace(/[+]/g, '');
+  const pesan = args.join` `;
+  const colombia = `🎩 *Mensaje:* ${pesan}`;
+  const ps = participants.map((u) => u.id).filter((v) => v !== conn.user.jid && v.startsWith(lol || lol));
+  const bot = global.db.data.settings[conn.user.jid] || {};
+  if (ps == '') return m.reply(`*🍭 Aqui No Hay Ningun Numero Con El Prefijo +${lol}*`);
+  const numeros = ps.map((v)=> '┋💙 @' + v.replace(/@.+/, ''));
+  const delay = (time) => new Promise((res)=>setTimeout(res, time));
+  switch (command) {
+    case 'hidnum': case 'tagnum':
+      conn.reply(m.chat, `*☄️ MENSAJE ESPECIAL PARA +${lol} QUE ESTAN EN ESTE GRUPO:*\n` + `${colombia}\n\n` + numeros.join`\n`, m, {mentions: ps});
+      break;
+      const ownerGroup = m.chat.split`-`[0] + '@s.whatsapp.net';
+      const users = participants.map((u) => u.id).filter((v) => v !== conn.user.jid && v.startsWith(lol || lol));
+      for (const user of users) {
+        const error = `@${user.split('@')[0]} ʏᴀ ʜᴀ sɪᴅᴏ ᴇʟɪᴍɪɴᴀᴅᴏ ᴏ ʜᴀ ᴀʙᴀɴᴅᴏɴᴀᴅᴏ ᴇʟ ɢʀᴜᴘᴏ*`;
+        if (user !== ownerGroup + '@s.whatsapp.net' && user !== global.conn.user.jid && user !== global.owner + '@s.whatsapp.net' && user.startsWith(lol || lol) && user !== isSuperAdmin && isBotAdmin && bot.restrict) {
+          await delay(2000);
+          const responseb = await conn.groupParticipantsUpdate(m.chat, [user], 'remove');
+          if (responseb[0].status === '404') m.reply(error, m.chat, {mentions: conn.parseMention(error)});
+          await delay(10000);
+        } else return m.reply('*✨️ 𝙴𝚁𝚁𝙾𝚁*');
+      }
+      break;
+  }
 };
-
-handler.command = ['bloqueados', 'bloqueadoslista', 'listablock', 'blocklist', 'listblock', 'listabloqueados'];
-
+handler.command = /^(hidnum|hidetagnum)$/i;
+handler.group = handler.botAdmin = handler.admin = true;
+handler.fail = null;
 export default handler;
