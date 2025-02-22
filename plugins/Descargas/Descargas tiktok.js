@@ -11,33 +11,45 @@ await conn.reply(m.chat, `✦ ¡Espera por favor!
 Estoy descargando el vídeo sin marca de agua.`, fkontak,  m) 
 try {
 const dataF = await tiktok.v1(args[0])
-conn.sendFile(m.chat, dataF.play, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? '\n⛱️ ${mid.smsYT14}\n*${description}*' : ''}\n${wm}`.trim(), m) 
+conn.sendFile(m.chat, dataF.play, 'tiktok.mp4', `☑️ Video descargado con éxito.
+
+© Powered By Elite Bot`.trim(), m) 
 } catch (e1) {
 try {
 const tTiktok = await tiktokdlF(args[0])
-conn.sendFile(m.chat, tTiktok.video, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? '\n⛱️ ${mid.smsYT14}\n*${description}*' : ''}\n${wm}`.trim(), m) 
+conn.sendFile(m.chat, tTiktok.video, 'tiktok.mp4', `☑️ Video descargado con éxito.
+
+© Powered By Elite Bot`.trim(), m) 
 } catch (e2) {
 try {
 let p = await fg.tiktok(args[0]) 
-conn.sendFile(m.chat, p.nowm, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? '\n⛱️ ${mid.smsYT14}\n*${description}*' : ''}\n${wm}`.trim(), m)
+conn.sendFile(m.chat, p.nowm, 'tiktok.mp4', `☑️ Video descargado con éxito.
+
+© Powered By Elite Bot`.trim(), m)
 } catch (e3) {
 try { 
 const { author: { nickname }, video, description } = await tiktokdl(args[0])
 const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd
-conn.sendFile(m.chat, url, 'tiktok.mp4', `⛱️ ${mid.user}\n*${nickname}*\n${description ? `\n⛱️ ${mid.smsYT14}\n*${description}*` : ''}\n${wm}`.trim(), m)
+conn.sendFile(m.chat, url, 'tiktok.mp4', `☑️ Video descargado con éxito.
+
+© Powered By Elite Bot`.trim(), m)
 //handler.limit = 2
 } catch (e4) {
 try{
 const response=await fetch(`https://deliriussapi-oficial.vercel.app/download/tiktok?url=${args[0]}`)
 const dataR = await response.json()
 const { author,title, meta} = dataR.data
-conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `⛱️ ${mid.user}\n*${author.nickname}*\n${wm}`.trim(), m) 
+conn.sendFile(m.chat, meta.media[0].org, 'tiktok.mp4', `☑️ Video descargado con éxito.
+
+© Powered By Elite Bot`.trim(), m) 
 }
 catch (e5){
 try{
 const response=await fetch(`https://deliriusapi-official.vercel.app/download/tiktok?&query=${text}`)
 const dataR = await response.json()
-conn.sendFile(m.chat,dataR.result.link, 'tiktok.mp4', `⛱️ ${mid.user}\n*${dataR.result.author.username}*\n${wm}`.trim(), m)
+conn.sendFile(m.chat,dataR.result.link, 'tiktok.mp4', `☑️ Video descargado con éxito.
+
+© Powered By Elite Bot`.trim(), m)
 } catch (e) {
 await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
