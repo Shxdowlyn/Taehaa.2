@@ -13,13 +13,13 @@ const vi = ['https://qu.ax/OMFqX.mp4',
            'https://qu.ax/Fsdxr.mp4']
 await m.react('🛁')
 try {
-await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu.getRandom() }, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
+await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
 } catch (error) {
 try {
-await conn.sendMessage(m.chat, { image: { url: gataMenu.getRandom() }, gifPlayback: false, caption: menu.getRandom() }, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
+await conn.sendMessage(m.chat, { image: { url: gataMenu.getRandom() }, gifPlayback: false, caption: menu, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
 } catch (error) {
 try {
-await conn.sendMessage(m.chat, { image: gataImg.getRandom(), gifPlayback: false, caption: menu.getRandom() }, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
+await conn.sendMessage(m.chat, { image: gataImg.getRandom(), gifPlayback: false, caption: menu, mentions: await conn.parseMention(menu) }, { quoted: fkontak })
 } catch (error) {
 try{
 await conn.sendFile(m.chat, imagen5, 'menu.jpg', menu, fkontak, false, { mentions: await conn.parseMention(menu) })
