@@ -34,7 +34,7 @@ m.exp = old
 handler.help = ['> ', '=> ']
 handler.tags = ['advanced']
 handler.customPrefix = /=?>|~/
-handler.command = 
+handler.command = []
 export default handler
 class CustomArray extends Array {
 constructor(...args) {
