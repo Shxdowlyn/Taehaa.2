@@ -538,7 +538,9 @@ let menu = `
 ╰━━━━━━⋆★⋆━━━━━━⬣
  `.trim()
     
-const vi = ['https://telegra.ph/file/be01122a7eea4915c7317.mp4']
+const vi = [
+  'https://raw.githubusercontent.com/Shxdowlyn/Imagenes/3a3a7687c1f624519fd0c9413d8cbc89d85c1458/VID-20260724-WA0031.mp4'
+]
 
 try {
 await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, mentions: [m.sender, global.conn.user.jid] }, { quoted: fkontak }) 
