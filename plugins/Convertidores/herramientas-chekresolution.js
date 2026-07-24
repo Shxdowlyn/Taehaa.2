@@ -1,6 +1,6 @@
 //By https://github.com/DIEGO-OFC
 
-import jimp from "jimp"
+import { Jimp } from 'jimp'
 import uploadImage from "../../lib/uploadImage.js"
 import uploadFile from "../../lib/uploadFile.js"
 
