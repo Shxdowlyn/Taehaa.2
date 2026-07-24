@@ -358,9 +358,11 @@ async function filesInit(folder) {
     if (statSync(fullPath).isDirectory()) {
       await filesInit(fullPath);
     } else {
-      try {
-        const file = global.__filename(fullPath);
-        const module = await import(file);
+  if (!fullPath.endsWith('.js')) continue;
+
+  try {
+    const file = global.__filename(fullPath);
+    const module = await import(file);
         global.plugins[filename] = module.default || module;
       } catch (e) {
         console.error(`ERROR EN: ${fullPath}`);
