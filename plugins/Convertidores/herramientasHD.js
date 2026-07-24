@@ -1,5 +1,5 @@
 import FormData from 'form-data'
-import Jimp from 'jimp'
+import { Jimp } from 'jimp'
   
 var handler = async (m, { conn, usedPrefix, command }) => {
 
