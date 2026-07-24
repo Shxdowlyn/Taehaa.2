@@ -1,6 +1,8 @@
 let user = (a) => "@" + a.split("@")[0];
+
 function handler(m, {groupMetadata, conn, text}) {
   if (!text) throw `Ejemplo de uso:\n.top *texto*`;
+
   let ps = groupMetadata.participants.map((v) => v.id);
   let a = ps.getRandom();
   let b = ps.getRandom();
@@ -12,10 +14,11 @@ function handler(m, {groupMetadata, conn, text}) {
   let h = ps.getRandom();
   let i = ps.getRandom();
   let j = ps.getRandom();
-  let k = Math.floor(Math.random() * 70);
-  let x = `${pickRandom(["🤓", "😅", "😂", "😳", "😎", "🥵", "😱", "🤑", "🙄", "💩", "🍑", "🤨", "🥴", "🔥", "👇🏻", "😔", "👀", "🌚"])}`
+
+  let x = `${pickRandom(["🤓", "😅", "😂", "😳", "😎", "🥵", "😱", "🤑", "🙄", "💩", "🍑", "🤨", "🥴", "🔥", "👇🏻", "😔", "👀", "🌚"])}`;
+
   let top = `*${x} Top 10 ${text} ${x}*
-    
+
 *1. ${user(a)}*
 *2. ${user(b)}*
 *3. ${user(c)}*
@@ -26,14 +29,16 @@ function handler(m, {groupMetadata, conn, text}) {
 *8. ${user(h)}*
 *9. ${user(i)}*
 *10. ${user(j)}*`;
+
   m.reply(top, null, {mentions: [a, b, c, d, e, f, g, h, i, j]});
 }
-  });
-}
+
 handler.help = handler.command = ["top"];
 handler.tags = ["fun"];
 handler.group = true;
+
 export default handler;
+
 function pickRandom(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
