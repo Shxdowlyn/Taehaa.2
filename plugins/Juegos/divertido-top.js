@@ -27,6 +27,7 @@ function handler(m, {groupMetadata, conn, text}) {
 *9. ${user(i)}*
 *10. ${user(j)}*`;
   m.reply(top, null, {mentions: [a, b, c, d, e, f, g, h, i, j]});
+}
   });
 }
 handler.help = handler.command = ["top"];
