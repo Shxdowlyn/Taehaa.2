@@ -363,10 +363,9 @@ async function filesInit(folder) {
         const module = await import(file);
         global.plugins[filename] = module.default || module;
       } catch (e) {
-  console.error(`ERROR EN: ${fullPath}`);
-  console.error(e);
-  delete global.plugins[filename];
-}
+        console.error(`ERROR EN: ${fullPath}`);
+        console.error(e);
+        delete global.plugins[filename];
       }
     }
   }
