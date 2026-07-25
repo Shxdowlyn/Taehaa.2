@@ -15,7 +15,8 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 global.owner = [
 ["5493863531938", "Nannobot", true],
 ["5493863447787", "Owner2", true],
-["5493863402551", "Owner3", false],
+[" 216758963195927", "Owner3", true],
+["5493863402551", "Owner4", false],
 ]
 
 global.mods = []
