@@ -1076,24 +1076,23 @@ jadibotmd: false,
 console.error(e)
 }
 
-let sender = m.sender
+console.log("SENDER:", m.sender)
+console.log("OWNERS:", global.owner)
 
-if (sender.endsWith('@lid')) {
-    try {
-        sender = await conn.signalRepository.lidMapping.getPNForLID(sender.split('@')[0])
-    } catch {}
-}
+const sender = conn.decodeJid(m.sender || '')
 
-const senderNumber = sender.replace(/[^0-9]/g, '')
+const senderNumber = String(sender).replace(/[^0-9]/g, '')
 
-const ownerList = global.owner.map(([number]) =>
-    number.replace(/[^0-9]/g, '')
+const ownerList = global.owner.map(([number]) => 
+    String(number).replace(/[^0-9]/g, '')
 )
 
 const isROwner = ownerList.includes(senderNumber)
+
 const isOwner = isROwner || m.fromMe
-const isMods = isOwner || global.mods.map(v =>
-    v.replace(/[^0-9]/g, '')
+
+const isMods = isOwner || global.mods.map(v => 
+    String(v).replace(/[^0-9]/g, '')
 ).includes(senderNumber)
 //const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
