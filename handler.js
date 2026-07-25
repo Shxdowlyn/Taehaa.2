@@ -1079,23 +1079,27 @@ console.error(e)
 console.log("SENDER:", m.sender)
 console.log("OWNERS:", global.owner)
 
-let senderJid = m.sender
+let sender = conn.decodeJid(m.sender)
 
 if (m.sender.endsWith('@lid')) {
-  let decoded = await conn.decodeJid(m.sender)
-  let user = await conn.onWhatsApp(decoded)
-  if (user && user[0]?.jid) senderJid = user[0].jid
+  let result = await conn.onWhatsApp(m.sender)
+  if (result?.[0]?.jid) sender = result[0].jid
 }
 
-const senderNumber = senderJid.replace(/[^0-9]/g, '')
+const ownerList = global.owner.map(([number]) =>
+  number.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
+)
 
-const ownerList = global.owner.map(([number]) => number.replace(/[^0-9]/g, ''))
-
-const isROwner = ownerList.includes(senderNumber)
+const isROwner = ownerList.includes(sender)
 
 const isOwner = isROwner || m.fromMe
 
-const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '')).includes(senderNumber)
+const isMods = isOwner || global.mods.map(v =>
+  v.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
+).includes(sender)
+
+console.log("SENDER CONVERTIDO:", sender)
+console.log("ES OWNER:", isOwner)
 //const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
