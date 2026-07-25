@@ -13,9 +13,9 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 // [ES] > Agrega el número que será Bot y los que serán propietarios.
 // [EN] > Add the number that will be Bot and those that will be owners.
 global.owner = [
-  ["5493863531938", "Nannobot", true],
-  ["5493863447787", "Owner2", false],
-  ["5493863402551", "Owner3", false],
+["5493863531938", "Nannobot", true],
+["5493863447787", "Owner2", true],
+["5493863402551", "Owner3", false],
 ]
 
 global.mods = []
