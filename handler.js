@@ -1076,13 +1076,11 @@ jadibotmd: false,
 console.error(e)
 }
 
-console.log("SENDER:", m.sender)
-console.log("OWNERS:", global.owner)
-
-const sender = conn.decodeJid(m.sender)
-const senderNumber = sender.replace(/[^0-9]/g, '')
 
 const ownerList = global.owner.map(([number]) => number.replace(/[^0-9]/g, ''))
+
+const senderJid = await conn.decodeJid(m.sender)
+const senderNumber = senderJid.replace(/[^0-9]/g, '')
 
 const isROwner = ownerList.includes(senderNumber)
 
