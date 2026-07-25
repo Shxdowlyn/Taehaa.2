@@ -1076,13 +1076,20 @@ jadibotmd: false,
 console.error(e)
 }
 
-console.log("M sender:", m.sender)
-console.log("Decode:", await conn.decodeJid(m.sender))
-console.log("User:", await conn.onWhatsApp("5493863447787"))
-const ownerList = global.owner.map(([number]) => number.replace(/[^0-9]/g, ''))
+console.log("SENDER:", m.sender)
+console.log("OWNERS:", global.owner)
 
-const senderJid = await conn.decodeJid(m.sender)
+let senderJid = m.sender
+
+if (m.sender.endsWith('@lid')) {
+  let decoded = await conn.decodeJid(m.sender)
+  let user = await conn.onWhatsApp(decoded)
+  if (user && user[0]?.jid) senderJid = user[0].jid
+}
+
 const senderNumber = senderJid.replace(/[^0-9]/g, '')
+
+const ownerList = global.owner.map(([number]) => number.replace(/[^0-9]/g, ''))
 
 const isROwner = ownerList.includes(senderNumber)
 
