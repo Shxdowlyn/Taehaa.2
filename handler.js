@@ -1076,7 +1076,9 @@ jadibotmd: false,
 console.error(e)
 }
 
-
+console.log("M sender:", m.sender)
+console.log("Decode:", await conn.decodeJid(m.sender))
+console.log("User:", await conn.onWhatsApp("5493863447787"))
 const ownerList = global.owner.map(([number]) => number.replace(/[^0-9]/g, ''))
 
 const senderJid = await conn.decodeJid(m.sender)
