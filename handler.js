@@ -1076,6 +1076,8 @@ jadibotmd: false,
 console.error(e)
 }
 
+console.log("SENDER:", m.sender)
+console.log("OWNERS:", global.owner)
 const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
