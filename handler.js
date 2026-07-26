@@ -1076,8 +1076,8 @@ jadibotmd: false,
 console.error(e)
 }
 
-console.log("SENDER:", m.sender)
 console.log("OWNERS:", global.owner)
+console.log("M.SENDER:", m.sender)
 
 let sender = conn.decodeJid(m.sender)
 
